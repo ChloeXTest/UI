@@ -220,6 +220,16 @@ Resizeable = function(Tab, Minimum, Maximum)
 	end)
 end
 
+--// Load UI
+local MainUI = Screen:WaitForChild("Main")
+local UIVisible = false
+
+ToggleButton.MouseButton1Click:Connect(function()
+	UIVisible = not UIVisible
+	MainUI.Visible = UIVisible
+	ToggleButton.Text = UIVisible and "Close ChloeX" or "Open ChloeX"
+end)
+
 --// Setup [UI]
 if (identifyexecutor) then
 	Screen = Services.Insert:LoadLocalAsset("rbxassetid://18490507748");
