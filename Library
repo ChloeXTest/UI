@@ -5,7 +5,10 @@ local Clone = game.Clone
 local Destroy = game.Destroy 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local CoreGui = game:GetService("CoreGui")
+local Core = gethui and gethui() or game:GetService("CoreGui")
+repeat task.wait() until Core
+task.wait()
+
 local ToggleButton = Instance.new("TextButton")
 ToggleButton.Name = "ChloeX_Toggle"
 ToggleButton.Size = UDim2.new(0, 120, 0, 40)
@@ -15,11 +18,13 @@ ToggleButton.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
 ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleButton.Font = Enum.Font.GothamBold
 ToggleButton.Text = "Open ChloeX"
-ToggleButton.ZIndex = 999
+ToggleButton.ZIndex = 999999
 ToggleButton.Draggable = true
+ToggleButton.Active = true
+ToggleButton.Visible = true
 
 pcall(function()
-	ToggleButton.Parent = CoreGui
+	ToggleButton.Parent = Core
 end)
 if not ToggleButton.Parent then
 	ToggleButton.Parent = player:WaitForChild("PlayerGui")
@@ -27,6 +32,7 @@ end
 
 local Corner = Instance.new("UICorner", ToggleButton)
 Corner.CornerRadius = UDim.new(0, 8)
+
 
 
 --// Important 
